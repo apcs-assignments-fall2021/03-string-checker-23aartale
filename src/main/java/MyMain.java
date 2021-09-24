@@ -4,26 +4,23 @@ public class MyMain {
     
     // Counts the number of 'a', 'b', and 'c' chars in str
     public static int countABC(String str) {
+        int a_counter = 0;
+        int b_counter = 0;
+        int c_counter = 0;
         for (int i = 0; i < str.length(); i++) {
-            int a_counter = 0;
-            int b_counter = 0;
-            int c_counter = 0;
-            if (str.charAt(i) == 'a') {
+            if (str.charAt(i) == 97){
                 a_counter = a_counter + 1;
             }
-            if (str.charAt(i) == 'b') {
+            else if (str.charAt(i) == 98) {
                 b_counter = b_counter + 1;
             }
-            if (str.charAt(i) == 'c') {
+            else if (str.charAt(i) == 99) {
                 c_counter = c_counter + 1;
+            } else {
             }
-            else {
-                return 0;
-            }
-            System.out.println("Down below it will say how many a's, b's, or c's are below");
-            return a_counter + b_counter + c_counter;
+        System.out.println("Down below it will say how many a's, b's, or c's are below");
         }
-        return 0;
+        return a_counter + b_counter + c_counter;
     }
 
     // Checks to see whether or not str contains 'The' or 'the'
@@ -41,23 +38,24 @@ public class MyMain {
 
     // Checks whether str is a palindrome or not
     public static boolean isPalindrome(String str) {
-            for (int i = 0; i < str.length(); i++) {
-                char forward = str.charAt(i);
-            for (int p = 0; p < str.length(); p--) {
-                char backward = str.charAt(p);
-            if (char forward.equals(backward) {
-                    System.out.println("IT IS A PALINDROME");
-                    return true;
+         String word = "";
+         int x  = 0;
+         for (int i = str.length() -1; i>=0; i--){
+             char a = str.charAt(i);
+             word += a;
                 }
-            else {
-                System.out.println("It is not a palindrome");
-                return false;
-                    }
-                }
-            }
+         if(word.equals(str)) {
+             return true;
+         }
+         else {
+             return false;
+         }
             }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next("Enter a string");
+        System.out.println(countABC(str));
+        System.out.println(containsThe(str));
+        System.out.println(isPalindrome(str));
     }
 }
